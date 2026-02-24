@@ -13,6 +13,7 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.commands.Auto;
 import frc.robot.commands.NeoCommand;
+import frc.robot.commands.NeoReverseCommand;
 import frc.robot.subsystems.DriveSubsystem;
 import frc.robot.subsystems.NeoSubsystem;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
@@ -74,7 +75,8 @@ public class RobotContainer {
     //intake.whileHeld(new IntakeCommand());
     //shoot.whileHeld(new ShooterCommand());
 
-    operator.a().whileTrue(new NeoCommand(neoSubsystem));
+    	operator.a().whileTrue(new NeoCommand(neoSubsystem));
+    	operator.b().whileTrue(new NeoReverseCommand(neoSubsystem));
   }
 
   /**

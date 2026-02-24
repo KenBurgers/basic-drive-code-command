@@ -11,7 +11,11 @@ public class NeoSubsystem extends SubsystemBase {
         new SparkMax(RobotMap.testNeo, MotorType.kBrushless);
 
     public void spin() {
-        neoTest.set(0.5);
+        neoTest.set(0.7);
+    }
+
+    public void spinReverse() {
+        neoTest.set(-0.7);
     }
 
     public void stop() {
