@@ -10,8 +10,11 @@ import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.commands.Auto;
+import frc.robot.commands.IntakeCommand;
+import frc.robot.commands.IntakeReverseCommand;
 import frc.robot.commands.NeoCommand;
 import frc.robot.commands.NeoReverseCommand;
 import frc.robot.subsystems.DriveSubsystem;
@@ -22,7 +25,7 @@ import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 // import frc.robot.commands.AutonomousCommand;
 // import frc.robot.commands.IntakeCommand;
 // import frc.robot.commands.ShooterCommand;
-// import frc.robot.subsystems.IntakeSubsystem;
+import frc.robot.subsystems.IntakeSubsystem;
 // import frc.robot.subsystems.ShooterSubsystem;
 
 /**
@@ -38,7 +41,7 @@ public class RobotContainer {
 
   // The robot's subsystems and commands are defined here...
   public DriveSubsystem driveSubsystem = new DriveSubsystem();
-  //public IntakeSubsystem intakeSubsystem = new IntakeSubsystem();
+  public IntakeSubsystem intakeSubsystem = new IntakeSubsystem();
   //public ShooterSubsystem shooterSubsystem = new ShooterSubsystem();
   //Command m_autonomousCommand = new AutonomousCommand(); Command m_autoIntake = new AutoIntake();
   //AutoIntake autoIntake = new AutoIntake(); AutonomousCommand autonomousCommand = new AutonomousCommand();
@@ -72,11 +75,12 @@ public class RobotContainer {
    * edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {
-    //intake.whileHeld(new IntakeCommand());
-    //shoot.whileHeld(new ShooterCommand());
 
-    	operator.a().whileTrue(new NeoCommand(neoSubsystem));
-    	operator.b().whileTrue(new NeoReverseCommand(neoSubsystem));
+    operator.a().whileTrue(new NeoCommand(neoSubsystem));
+    operator.b().whileTrue(new NeoReverseCommand(neoSubsystem));
+    operator.y().whileTrue(new IntakeCommand(intakeSubsystem));
+    operator.x().whileTrue(new IntakeReverseCommand(intakeSubsystem));
+
   }
 
   /**
