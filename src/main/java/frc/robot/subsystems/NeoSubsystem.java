@@ -15,7 +15,7 @@ public class NeoSubsystem extends SubsystemBase {
     }
 
     public void spinReverse() {
-        neoTest.set(-0.7);
+        neoTest.set(1);
     }
 
     public void stop() {

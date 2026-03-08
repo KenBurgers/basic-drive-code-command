@@ -21,4 +21,4 @@ public class NeoCommand extends Command {
     public void end(boolean interrupted) {
         neoSubsystem.stop();
     }
-}
+};
