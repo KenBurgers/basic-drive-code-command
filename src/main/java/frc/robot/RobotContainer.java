@@ -20,7 +20,6 @@ import frc.robot.commands.NeoReverseCommand;
 import frc.robot.subsystems.DriveSubsystem;
 import frc.robot.subsystems.NeoSubsystem;
 import frc.robot.subsystems.VisionInterface;
-import frc.robot.commands.VisionCommand;
 import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 
@@ -46,7 +45,7 @@ public class RobotContainer {
   public DriveSubsystem driveSubsystem = new DriveSubsystem();
   public IntakeSubsystem intakeSubsystem = new IntakeSubsystem();
   public VisionInterface visionInterface = new VisionInterface();
-  
+
   //public ShooterSubsystem shooterSubsystem = new ShooterSubsystem();
   //Command m_autonomousCommand = new AutonomousCommand(); Command m_autoIntake = new AutoIntake();
   //AutoIntake autoIntake = new AutoIntake(); AutonomousCommand autonomousCommand = new AutonomousCommand();
@@ -64,7 +63,7 @@ public class RobotContainer {
    */
   public RobotContainer() {
     // Create choices for autonomous functions in the Smart Dashboard
-    m_chooser.setDefaultOption("Test Auto Command", new Auto(driveSubsystem, neoSubsystem));
+    m_chooser.setDefaultOption("Test Auto Command", new Auto(driveSubsystem, visionInterface));
     //m_chooser.addOption("Auto Intake", m_autoIntake);
     SmartDashboard.putData(m_chooser);
     // Configure the button bindings

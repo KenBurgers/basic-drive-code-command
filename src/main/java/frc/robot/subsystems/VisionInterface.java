@@ -2,6 +2,10 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.SerialPort;
 
+//1m -8.2
+//0.873m -7.36
+//10cm/0.66 units
+
 public class VisionInterface {
 
     private SerialPort serial;
@@ -19,7 +23,7 @@ public class VisionInterface {
     public VisionInterface() {
 
         try {
-            serial = new SerialPort(115200, SerialPort.Port.kUSB);
+            serial = new SerialPort(9600, SerialPort.Port.kUSB);
             serial.setTimeout(0.02);
             serial.enableTermination('\n');
         } catch (Exception e) {
@@ -36,8 +40,6 @@ public class VisionInterface {
 
             String data = serial.readString();
             if (data == null || data.isEmpty()) return;
-
-            System.out.println(data);
 
             String[] lines = data.split("\n");
 
