@@ -45,7 +45,6 @@ public class RobotContainer {
   public DriveSubsystem driveSubsystem = new DriveSubsystem();
   public IntakeSubsystem intakeSubsystem = new IntakeSubsystem();
   public VisionInterface visionInterface = new VisionInterface();
-
   //public ShooterSubsystem shooterSubsystem = new ShooterSubsystem();
   //Command m_autonomousCommand = new AutonomousCommand(); Command m_autoIntake = new AutoIntake();
   //AutoIntake autoIntake = new AutoIntake(); AutonomousCommand autonomousCommand = new AutonomousCommand();

@@ -15,7 +15,8 @@ public class VisionInterface {
     private double rotateError = 0.0;   // degrees
     private double distanceError = 0.0;
     private int tagID = -1;
-    private int latency = 0;
+    private double latency;
+    
 
     // Camera temperature
     private double chipTemperature = 0.0;
@@ -36,9 +37,12 @@ public class VisionInterface {
         
         if (serial == null) return;
 
+        //tagID = -1;
+
         try {
 
             String data = serial.readString();
+            System.out.println(data);
             if (data == null || data.isEmpty()) return;
 
             String[] lines = data.split("\n");
@@ -55,13 +59,14 @@ public class VisionInterface {
 
                     case "ALIGN":
 
-                        if (parts.length >= 6) {
+                        if (parts.length >= 4) {
 
+                            // align,tagid,strafe,rotate,distance
                             tagID = Integer.parseInt(parts[1]);
                             strafeError = Double.parseDouble(parts[2]);
                             rotateError = Double.parseDouble(parts[3]);
                             distanceError = Double.parseDouble(parts[4]);
-                            latency = Integer.parseInt(parts[5]);
+                            //latency = Integer.parseInt(parts[5]);
 
                         }
 
@@ -109,7 +114,7 @@ public class VisionInterface {
         return tagID;
     }
 
-    public int getLatency() {
+    public double getLatency() {
         return latency;
     }
 

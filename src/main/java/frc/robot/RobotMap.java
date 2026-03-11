@@ -19,7 +19,9 @@ public class RobotMap {
     public static final int backRight = 1;
     
     // Neo port
-    public static final int testNeo = 1;
+    public static final int rightShooterNeo = 1;
+    public static final int leftShooterNeo = 2;
+    public static final int kickerMotor = 3;
 
     // Driver stick buttons
     public static final int fastRobotButton = 1;
